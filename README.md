@@ -2,6 +2,8 @@
 
 This repo is for deploying the Carim Discord Bot using Heroku
 
+Video guide: https://youtu.be/LiklhYLcYy8
+
 ## Steps for initial setup
 
 1. Set up a [free Heroku account](https://signup.heroku.com/signup/dc)
@@ -31,9 +33,11 @@ This repo is for deploying the Carim Discord Bot using Heroku
    
 ## Steps to update carim-discord-bot
 
+You only need to do this when the bot version needs updated. By default, the lastest version will be used when initially set up.
+
 1. Edit `requirements.txt`
-1. Replace `carim-discord-bot` with `carim-discord-bot=={version}`, where `{version}` is the version you want
-   + `carim-discord-bot==2.0.0`
+1. Replace `carim-discord-bot` with `carim-discord-bot=={version}`, where `{version}` is the version you want. Find the latest version on [PyPI](https://pypi.org/project/carim-discord-bot/).
+   + `carim-discord-bot==2.2.1`
 1. Commit your changes
    + `git add -A`
    + `git commit -m "Updated bot version"`
@@ -57,3 +61,14 @@ For additional help, visit the Carim Discord at https://discord.gg/kdPnVu4
    + To get Discord Channel IDs, you need to enable developer mode in the app:
       + Settings -> Appearance -> Advanced -> Developer Mode
    + Then, you will be able to right click on a Channel and select "Copy ID"
+
+## CFTools integration
+
+1. Make your cftools account a developer
+   + https://wiki.cftools.de/display/CFTOOL/Developer+Accounts
+1. Create a cftools application
+   + https://network.cftools.de/cfapi/overview
+1. Open the application dashboard and copy the grant url
+1. Open the grant url and allow your application to access your service
+1. Fill in the values in the bot's config for cftools_application_id, cftools_client_id, cftools_secret, and cftools_service_id
+1. Use the commands `--leaderboard <stat type>` and `--stats <steam64id>` in the user command channel for querying
